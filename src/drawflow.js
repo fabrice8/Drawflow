@@ -1180,8 +1180,12 @@ export default class Drawflow {
     return nodes;
   }
 
-  addNode (name, num_in, num_out, ele_pos_x, ele_pos_y, classoverride, data, html, typenode = false) {
-    if (this.useuuid) {
+  addNode (name, num_in, num_out, ele_pos_x, ele_pos_y, classoverride, data, html, id, typenode = false) {
+    
+    if (id) {
+      var newNodeId = id;
+    }
+    else if (this.useuuid) {
       var newNodeId = this.getUuid();
     } else {
       var newNodeId = this.nodeId;

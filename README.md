@@ -213,6 +213,7 @@ Parameter | Type | Description
 `class` | text | Added classname to de node. Multiple classnames separated by space
 `data` | json | Data passed to node
 `html` | text | HTML drawn on node or `name` of register node.
+`id` | any | Manually set node id.
 `typenode` | boolean & text | Default `false`, `true` for Object HTML, `vue` for vue
 
 You can use the attribute `df-*` in **inputs, textarea or select** to synchronize with the node data and **contenteditable**.
@@ -226,7 +227,7 @@ var html = `
 `;
 var data = { "name": '' };
 
-editor.addNode('github', 0, 1, 150, 300, 'github', data, html);
+editor.addNode('github', 0, 1, 150, 300, 'github', data, html, 1);
 ```
 ### Register Node
 
@@ -236,13 +237,13 @@ var html = document.createElement("div");
 html.innerHTML =  "Hello Drawflow!!";
 editor.registerNode('test', html);
 // Use
-editor.addNode('github', 0, 1, 150, 300, 'github', data, 'test', true);
+editor.addNode('github', 0, 1, 150, 300, 'github', data, 'test', 1, true);
 
 // For vue
 import component from '~/components/testcomponent.vue'
 editor.registerNode('name', component, props, options);
 // Use for vue
-editor.addNode('github', 0, 1, 150, 300, 'github', data, 'name', 'vue');
+editor.addNode('github', 0, 1, 150, 300, 'github', data, 'name', 1, 'vue');
 ```
 
 Parameter | Type | Description
